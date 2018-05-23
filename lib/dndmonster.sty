@@ -92,6 +92,13 @@
   \let\endmonsterbox\endmonsterboxnobg%
 }
 
+% Insert specific SRD monster
+\newcommand{\monster}[1]{%
+	\StrSubstitute{#1}{ }{" "}[\MonsterNameA]
+	\StrSubstitute{\MonsterNameA}{/}{&2F}[\MonsterNameB]
+	\def\MonsterFile{lib/monsters/\MonsterNameB.tex}
+	\input{\MonsterFile}
+}
 
 % Define Monster subsection header style
 \newcommand{\monstersection}[1]{%
